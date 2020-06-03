@@ -1,0 +1,165 @@
+body {
+	overflow-x: hidden;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+span {
+	padding-right: 5px;
+}
+
+table {
+	width: 90%;
+	/* border-collapse: collapse; */
+	font-size: small;
+	text-align: left;
+	margin-bottom: 20px;
+	/* margin-right: 20em; */
+}
+
+/* tbody {
+	border-left: 1px solid rgba(173, 170, 170, 0.973);
+	border-right: 1px solid rgba(173, 170, 170, 0.973);
+} */
+
+tbody tr:hover {
+	color: #212529;
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd):not(.headerTable) {
+	background: #f9f9f9;
+}
+
+th {
+	padding: 15px 0;
+	background: #e9e9e9;
+	color: #000;
+	font-weight: bold;
+}
+
+td {
+	text-align: left;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	padding: 10px;
+	/* border-bottom: 1px solid rgba(173, 170, 170, 0.973); */
+}
+
+.content {
+	/* padding: 100pxs; */
+	margin: 20px 0;
+	padding: 0 30px;
+	/* border: 1px solid red; */
+	/* background-color: aquamarine; */
+}
+
+/* 
+.table-user-left {
+	border-left: 1px solid #ccc;
+	border-top-left-radius: 20px;
+}
+
+.table-user-right {
+	border-right: 1px solid #ccc;
+	border-top-right-radius: 20px;
+} */
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px) {
+	/* Force table to not be like tables anymore */
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr {
+		border: 1px solid #ccc;
+	}
+
+	td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		/* padding-left: 50%; */
+	}
+
+	td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+}
+
+th.actions {
+	border-top-right-radius: 15px;
+}
+
+.action-edit {
+	color: #5babdf;
+	margin-right: 50px;
+}
+
+.action-delete {
+	color: #eb058c;
+	margin-right: 0;
+	padding-right: 0;
+}
+
+.btn-custom {
+	background: #5babdf;
+	border: 1px solid #5babdf;
+	padding: 0 30px;
+}
+
+.btn-new-user {
+	text-align: right;
+	margin-right: 9%;
+}
+
+.btn-save-change {
+	text-align: center;
+}
+
+.label-form {
+	color: #eb058c;
+	/* font-weight: bold; */
+}
+
+
+.user-codigo {
+	margin-left: 5px;
+}
