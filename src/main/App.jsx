@@ -4,13 +4,13 @@ import './App.css'
 import React from 'react'
 
 //Importando componentes
-import Header from '../components/Header'
-import Nav from '../components/Nav'
+// import Header from '../components/Header'
+// import Nav from '../components/Nav'
 import Insumos from '../components/Insumos'
 
 export default props =>
     <div className="app">
-        <Header />
-        <Nav />
+        {/* <Header />
+        <Nav /> */}
         <Insumos />
     </div>

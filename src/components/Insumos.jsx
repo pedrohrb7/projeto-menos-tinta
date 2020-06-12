@@ -3,13 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css'
 import './Insumos.css'
 
+document.getElementById('root')
 
 export default class Insumos extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            apt: false,
+            cod_empresa: '',
             inicial: '',
             final: '',
             dataInicial: '',
@@ -65,26 +66,26 @@ export default class Insumos extends Component {
         fetch('https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/EntradasEstoque?9986D8', requestOptions)
             .then(rest => rest.json())
             .then(data => this.setState({ data }))
-            .catch("Error");
+            .catch(Error=>console.log(Error));
 
 
         //INICIO DA CHAMADA DA API DE USUÁRIOS
         fetch('https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/Rest/tserverMethods1/Usuarios?0877')
             .then(rest => rest.json())
             .then(usuario => this.setState({ usuario }))
-            .catch("Error")
+            .catch(Error=>console.log(Error));
 
         //INICIO DA CHAMADA DA API DE IMPRESSORA
         fetch('https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/Rest/tserverMethods1/Impressoras?0877')
             .then(rest => rest.json())
             .then(impressora => this.setState({ impressora }))
-            .catch("Error")
+            .catch(Error=>console.log(Error));
 
         //INICIO DA CHAMADA DA API DE DEPARTAMENTO
         fetch('https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/Rest/tserverMethods1/Departamentos?0877', requestOptions)
             .then(rest => rest.json())
             .then(departamento => this.setState({ departamento }))
-            .catch("Error");
+            .catch(Error=>console.log(Error));
 
     }
 
@@ -95,9 +96,12 @@ export default class Insumos extends Component {
 
         var dataInicial = this.state.dataInicial
         var dataFinal = this.state.dataFinal
-        state.inicio = dataInicial.replace("-", " ").replace("-", " ").replace("|", " ").replace(":", " ") + "00"
-        state.final = dataFinal.replace("-", " ").replace("-", " ").replace("|", " ").replace(":", " ") + "00"
-        state.data = []
+        
+         state.inicio = dataInicial.replace("-", "").replace("-", "").replace("|", "").replace(":", "") + ""
+         state.final = dataFinal.replace("-", "").replace("-", "").replace("|", "").replace(":", "") + ""
+         state.dataInicial = dataInicial.replace("-", "").replace("-", "").replace("|", "").replace(":", "") + ""
+         state.dataFinal = dataFinal.replace("-", "").replace("-", "").replace("|", "").replace(":", "") + ""
+         state.data = []
 
 
         //Chamada da api para atualizar a tabela
@@ -108,18 +112,35 @@ export default class Insumos extends Component {
             headers: myHeaders,
             redirect: 'follow'
         }
+        
 
-        fetch('https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/EntradasEstoque?9986D8', requestOptions)
+        //Url base
+        var url = 'https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/EntradasEstoque?9986D8'
+
+        //Adicionando os parametros na url base
+
+        url +=  ("" ? '&' + "" : "" )
+        url += '&' + (this.state.dataInicial ? this.state.dataInicial : 0 )
+        url += '&' + (this.state.dataFinal ? this.state.dataFinal : 0 )
+        url += '&' + (this.state.usuarioSelecionado ? this.state.usuarioSelecionado : 0 )
+        url += '&' + (this.state.imp_selecionada ? this.state.imp_selecionada : 0 )
+        url += '&' + (this.state.dept_selecionado ? this.state.dept_selecionado : 0 )
+
+        
+        console.log(url)
+
+        // fetch('https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/EntradasEstoque?9986D8', requestOptions)
+        fetch(url)
             .then(rest => rest.json())
             .then(data => {
                 state.data = data
                 this.setState(state) //Atualização assincrona
             })
-            .catch("Error");
+            .catch(Error=>console.log(Error));
 
         console.log(state)
 
-        this.setState(state) //Para ver a atualização da tela (pode remover depois, não importante!)
+        //  this.setState(state) //Para ver a atualização da tela (pode remover depois, não importante!)
 
         /*
            this.setState(state)fora do Fetch retira as informações da tela
@@ -128,7 +149,7 @@ export default class Insumos extends Component {
     }
 
     render() {
-        const { dataInicial, dataFinal, inicio, final } = this.state
+        const { dataInicial, dataFinal } = this.state
         const items = []
         const usuarios = []
         const impressoras = []
@@ -239,7 +260,7 @@ export default class Insumos extends Component {
 
                     {/*------ INÍCIO BOTÃO DO FILTRAR -----------*/}
                     <div className="col-2 ">
-                        <button className="filter" onClick={this.consultar.bind(this)}>filtrar</button>
+                        <button className="filter" onClick={this.consultar.bind(this) } >filtrar</button>
                     </div>
                     {/*------ FIM BOTÃO DO FILTRAR -----------*/}
                 </div>
@@ -250,14 +271,14 @@ export default class Insumos extends Component {
                     <div className="row">
                         <div className="col-12 mt-5">
 
-                            <table border="0">
+                            <table border="0" >
                                 <thead className="t-header">
                                     <tr key={usuarios.id}>
                                         <th className="b-radius">Usuário</th>
                                         <th>Departamento</th>
                                         <th>Data</th>
                                         <th>Impressora</th>
-                                        <th>Mod.                              impressora
+                                        <th>Mod.impressora
                 </th>
                                         <th>Mod.
                                         Cartucho/Toner
@@ -277,6 +298,8 @@ export default class Insumos extends Component {
                 {/*------ FIM DO FILTRO -----------*/}
             </main>
         )
+
     }
+    
 }
 

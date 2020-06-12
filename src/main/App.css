@@ -1,6 +1,7 @@
 /*--- VARIÁVEIS ---*/
 :root{
     --header-height: 80px;
+    --menu-top-height: 80px;
     --aside-width: 225px;
 
     --shadow:
@@ -42,3 +43,16 @@ main.content {
 
 
 
+@media(max-widht: 768px) {
+    .app{
+        grid-template-rows: 
+        var(--header-height)
+        var(--menu-top-height)
+        1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "menu"
+    "content";
+    }
+}

@@ -100,3 +100,13 @@ td {
   color: #fff;
 } 
 /*------ FIM DO BOTÃO --------*/
+
+@media(max-widht: 768px) {
+  table{
+    width: 50%;
+    height: 50%;
+    table-layout: absolute;
+    overflow: scroll;
+    text-align: start;
+  }
+}
