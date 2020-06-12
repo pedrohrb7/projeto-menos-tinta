@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding:0;
+}
+
+body {
+    background-color: #FAFAFA;
+}
+
+.container-flexbox {
+    width: 100%;  
+    display: flex;
+    flex-direction: row;
+  
+}
+
+header {
+   background-color: #1588CE;
+   color: #fff;
+   height: 30%;
+}
+
+nav {
+    background-color: #EDF2F7;
+    width: 15%;
+    height: 597px;    
+}
+
+.valores {
+    background-color:#EDF2F7;
+    font-size: 1em;
+    width: 15%;
+    /* height: 80px; */
+    margin-top: 35px;
+    margin-left: 30px;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+
+}
+
+.valoreconomia {
+    color: #EB058C;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.valoreconomizado {
+    color: #E3BD00;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.valorreal {
+    color: #5BABDF;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.grafico {
+    width: 54%;
+    height: 400px;
+    margin-top: 35px;
+    margin-left: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.grafico p {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 200px;
+}
