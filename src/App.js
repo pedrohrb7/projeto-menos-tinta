@@ -9,6 +9,7 @@ function App() {
 			{/* Aqui deve conter apenas a tela de login, pois é a tela principal */}
 			<UserList />
 			{/* <TicketingPage/> */}
+			{/* <Insumos /> */}
 		</div>
 	);
 }
