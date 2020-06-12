@@ -1,7 +1,7 @@
-import React, { Component, requestOption } from "react";
+import React, { Component } from "react";
 
-import "./UserManagement.css";
-import NewUser from "./NewUser";
+import "./User-Management.css";
+// import NewUser from "./NewUser";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -12,19 +12,19 @@ export default class UserManagement extends Component {
 	};
 
 	componentDidMount() {
-		// var myHeaders = new Headers();
+		var myHeaders = new Headers();
 
-		// myHeaders.append("X-Requested-With", "XMLHttpRequest");
+		myHeaders.append("X-Requested-With", "XMLHttpRequest");
 
-		// var requestOptions = {
-		// 	method: "GET",
-		// 	headers: myHeaders,
-		// 	redirect: "follow"
-		// };
+		var requestOptions = {
+			method: "GET",
+			headers: myHeaders,
+			redirect: "follow",
+		};
 
 		fetch(
 			"https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Usuarios?0877",
-			requestOption
+			requestOptions
 		)
 			.then((response) => response.json())
 			.then((response) => {
@@ -39,7 +39,7 @@ export default class UserManagement extends Component {
 		const editIcon = <FontAwesomeIcon icon={faEdit} />;
 		const deleteIcon = <FontAwesomeIcon icon={faTrashAlt} />;
 
-		var content = <p>Carregando...</p>;
+		var content = <p>Carregando lista de usuários...</p>;
 
 		if (this.state.users.length !== 0) {
 			content = (
@@ -81,8 +81,7 @@ export default class UserManagement extends Component {
 			<div>
 				<div className="container content">
 					{content}
-
-					<NewUser />
+					{/* <NewUser /> */}
 				</div>
 			</div>
 		);

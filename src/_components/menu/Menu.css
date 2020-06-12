@@ -1,0 +1,57 @@
+a {
+    font-weight: 500;
+    font-size: medium;
+    
+}
+
+a:hover {
+    color: #eb058c !important;
+    text-decoration: none;
+}
+
+.menos-tinta-logo {
+	margin-bottom: 8px;
+}
+
+.menu-top {
+	background: #1588ce;
+	color: white;
+}
+
+.login-session a,
+span a {
+	color: white;
+}
+
+.login-session {
+	margin-right: 5px;
+}
+
+.log-out {
+	margin-left: 5rem;
+}
+
+.logged-user {
+	margin-right: 0.5rem;
+}
+
+.print-button {
+	background-color: rgba(180, 208, 240, 0.836);
+	width: 20em;
+	padding: 0 0;
+}
+
+.icon {
+    margin-right: 0.4rem;
+}
+
+.search-icon {
+	margin-right: 0.5rem;
+}
+
+.side-menu {
+    background: #edf2f7;
+    width: 70%;
+	/* height: 100vh; */
+	margin-right: 10px;
+}

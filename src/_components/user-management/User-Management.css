@@ -10,16 +10,23 @@ a:hover {
 	text-decoration: none;
 }
 
+p {
+	font-weight: bolder;
+	text-align: center;
+	font-size: larger;
+}
+
 span {
 	padding-right: 5px;
 }
 
 table {
-	width: 90%;
 	/* border-collapse: collapse; */
 	font-size: small;
 	text-align: left;
-	margin-bottom: 20px;
+	/* margin-bottom: 20px;
+	margin-top: 10%; */
+	margin: 10% 0 10px 0;
 	/* margin-right: 20em; */
 }
 
@@ -159,7 +166,7 @@ th.actions {
 	/* font-weight: bold; */
 }
 
-
 .user-codigo {
 	margin-left: 5px;
 }
+
