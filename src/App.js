@@ -1,15 +1,14 @@
 import React from "react";
 
-// import TicketingPage from './components/TicketingPage';
 import UserList from "./pages/UserList";
+// import Login from "./pages/Login";
 
 function App() {
 	return (
 		<div className="App">
 			{/* Aqui deve conter apenas a tela de login, pois é a tela principal */}
+			{/* <Login /> */}
 			<UserList />
-			{/* <TicketingPage/> */}
-			{/* <Insumos /> */}
 		</div>
 	);
 }
