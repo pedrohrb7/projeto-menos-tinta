@@ -150,26 +150,13 @@ export default class TicketingPage extends Component {
 
     render(){
 
-        //Estilo botão de envio dos filtros
-        const buttonStyle = { 
-            backgroundColor: '#5babdf',
-            color: 'white',
-            fontFamily: '"Roboto", sans-serif',
-            fontWeight: '700',
-            letterSpacing: '1px',
-            margin: '10px',
-            padding: '5px 30px',
-            height: '40px',
-            border: 'none',
-            borderRadius: 20
-        };
-
         return(
 
             <div className="ticketing-page">
 
                 {/* INÍCIO DOS FILTROS */}              
                 <div className='ticketing-filters'> 
+
                     {/* Filtro de Usuários */}
                     <div id="user-filter" className="filter">
                         <select value={this.state.usuCodigo} onChange={this.handleChangeUser}>
@@ -179,6 +166,7 @@ export default class TicketingPage extends Component {
                             )}
                         </select>
                     </div>
+
                     {/* Filtro de Impressoras */}
                     <div id="printer-filter" className="filter">
                         <select value={this.state.impCodigo} onChange={this.handleChangeImp}>
@@ -187,7 +175,8 @@ export default class TicketingPage extends Component {
                                 <option value={item.imp_codigo}>{item.imp_nome}</option>
                             )}
                         </select>
-                    </div>                    
+                    </div>           
+
                     {/* Filtro de Departamentos */}
                     <div id="dpt-filter" className="filter">
                         <select value={this.state.dptCodigo} onChange={this.handleChangeDpt}>
@@ -196,19 +185,22 @@ export default class TicketingPage extends Component {
                                 <option value={item.dpt_codigo}>{item.dpt_nome}</option>
                             )}
                         </select>
-                    </div>                    
+                    </div>      
+
                     {/* Filtro de Datas */}
                     <div className="filter date-filters-container">
                         Período:
-                        <div className="date-filters" id="init-date-filter">
-                            <input type="date" value={this.state.dataInicial} onChange={this.handleChangeDataIni}/>
-                        </div>
-                        <div className="date-filters" id="final-date-filter">
-                            <input type="date" value={this.state.dataFinal} onChange={this.handleChangeDataFim}/>
+                        <div className="date-select-container">
+                            <div className="date-filters" id="init-date-filter">
+                                <input type="date" value={this.state.dataInicial} onChange={this.handleChangeDataIni}/>
+                            </div>
+                            <div className="date-filters" id="final-date-filter">
+                                <input type="date" value={this.state.dataFinal} onChange={this.handleChangeDataFim}/>
+                            </div>
                         </div>
                     </div>
 
-                    <button onClick={this.triggerChildAlert} style={buttonStyle}>Filtrar</button>
+                    <button className="filter-button" onClick={this.triggerChildAlert}>Filtrar</button>
                 </div>
                 {/* FIM DOS FILTROS */}
 

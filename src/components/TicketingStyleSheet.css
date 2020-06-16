@@ -3,7 +3,10 @@
 
 .ticketing-filters {
     display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
     width: 90%;
+    margin: auto;
 }
 
 .filter {
@@ -11,7 +14,29 @@
 }
 
 .date-filters-container {
+    display: block;
+    text-align: justify;
+}
+
+.date-filters {
+    padding: 5px 10px 5px 0;
+}
+
+.date-select-container {
     display: flex;
+}
+
+.filter-button {
+    background-color: #5babdf;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 10px;
+    padding: 5px 30px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
 }
 
 select {
@@ -35,6 +60,7 @@ input {
 /* CONTAINER DE ELEMENTOS ABAIXO DA TABELA */
 .under-table-container {
     display: flex;
+    justify-content: space-around;
 }
 
 /* DADOS DE PORCENTAGEM DE ECONOMIA */
@@ -63,7 +89,7 @@ label {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     margin: 10px;
-    padding: 10px 30px;
+    padding: 14px 30px;
     /* height: 80px; */
     border: none;
     border-radius: 10px;
@@ -76,3 +102,40 @@ label {
 #val-sem-econo {
     border-bottom: white solid 2px;
 }
+
+/* TABELA */
+
+div#ticketing-table-container {
+    padding-top: 30px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.table {
+    width: 98%;
+    margin: auto;
+}
+
+.table th {
+    border-top: none;
+}
+
+.table-cell {
+    padding: 10px 0;  
+    height: 60px;
+    font-size: 17px;
+    color: #757575;
+}
+
+thead {
+    background-color: #e9e9e9;
+    font-size: 17px;
+    height: 63px;
+    width: 50px;
+    padding-left: 15px;
+}
+
+tbody {
+    background-color: white;
+}
+

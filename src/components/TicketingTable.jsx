@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Table } from "react-bootstrap"; 
 import "bootstrap/dist/css/bootstrap.min.css";
+import './TicketingStyleSheet.css';
 
 export default class TicketingTable extends Component {
 
@@ -64,41 +65,41 @@ export default class TicketingTable extends Component {
     render() {
 
         // Estilização dos elementos da tabela
-        const testeDiv = {
-            paddingTop: '30px',
-            maxHeight: '300px',
-            overflowY: 'scroll'
-        };
+        // const testeDiv = {
+        //     paddingTop: '30px',
+        //     maxHeight: '300px',
+        //     overflowY: 'scroll'
+        // };
 
-        const tableBodyStyle = {
-            backgroundColor: 'white',
-        };
+        // const tableBodyStyle = {
+        //     backgroundColor: 'white',
+        // };
 
-        const tableStyle = {
-            width: '98%',
-            margin: 'auto',
-        };
+        // const tableStyle = {
+        //     width: '98%',
+        //     margin: 'auto',
+        // };
 
-        const tableHeadStyle = {
-            backgroundColor: '#e9e9e9',
-            fontSize: '17px',
-            height: '63px',
-            width: '50px',
-            paddingLeft: '15px',
-        };
+        // const tableHeadStyle = {
+        //     backgroundColor: '#e9e9e9',
+        //     fontSize: '17px',
+        //     height: '63px',
+        //     width: '50px',
+        //     paddingLeft: '15px',
+        // };
 
-        const tableCellDiv = {
-            padding: '10px',  
-            fontSize: '17px',
-            color: '#bebebf',
-        }
+        // const tableCellDiv = {
+        //     padding: '10px',  
+        //     fontSize: '17px',
+        //     color: '#bebebf',
+        // }
 
         return(
 
-            <div style={testeDiv} id="ticketing-table-container">
-                <Table style={tableStyle} id="ticketing-table" className="table">
+            <div id="ticketing-table-container">
+                <Table id="ticketing-table" className="table">
                 {/* <table> */}
-                    <thead style={tableHeadStyle}>
+                    <thead>
                         <tr>
                             <th style={{ borderTopLeftRadius: "20px" }}>Usuário</th>
                             <th>Computador</th>
@@ -110,39 +111,39 @@ export default class TicketingTable extends Component {
                             <th style={{ borderTopRightRadius: "20px" }}>% Economia</th>
                         </tr>
                     </thead>
-                    <tbody style={tableBodyStyle}>
+                    <tbody>
                         <tr> 
                             {/* Coloca os dados do JSON do método Bilhetagem na tabela */}
                             <td>{this.state.resultJson.map(item => 
-                                <div style={tableCellDiv}>{item.usu_nome}</div>
+                                <div className="table-cell">{item.usu_nome}</div>
                                 )}
                             </td>
                             <td>{this.state.resultJson.map(item => 
-                                <div style={tableCellDiv}>{item.doc_computador}</div>
+                                <div className="table-cell">{item.doc_computador}</div>
                                 )}
                             </td>
                             <td>{this.state.resultJson.map(item => 
-                                <div style={tableCellDiv}>{item.imp_nome}</div>
+                                <div className="table-cell">{item.imp_nome}</div>
                                 )}
                             </td>
                             <td>{this.state.resultJson.map(item => 
-                                <div style={tableCellDiv}>{item.dpt_nome}</div>
+                                <div className="table-cell">{item.dpt_nome}</div>
                                 )}
                             </td>
                             <td>{this.state.resultJson.map(item => 
-                                <div style={tableCellDiv}>{item.doc_nome}</div>
+                                <div className="table-cell">{item.doc_nome}</div>
                                 )}
                             </td>
                             <td>{this.state.resultJson.map(item => 
-                                <div style={tableCellDiv}>{item.doc_data}</div>
+                                <div className="table-cell">{item.doc_data}</div>
                                 )}
                             </td>
                             <td>{this.state.resultJson.map(item => 
-                                <div style={tableCellDiv}>{item.doc_paginas}</div>
+                                <div className="table-cell">{item.doc_paginas}</div>
                                 )}
                             </td>
                             <td>{this.state.resultJson.map(item => 
-                                <div style={tableCellDiv}>{item.doc_porc}</div>
+                                <div className="table-cell">{item.doc_porc}</div>
                                 )}
                             </td>
                         </tr>
