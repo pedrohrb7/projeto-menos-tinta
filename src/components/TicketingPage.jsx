@@ -13,23 +13,23 @@ export default class TicketingPage extends Component {
             impCodigo: "",
             dptJson: [],
             dptCodigo: "",
-            bilhetagemJson: []
-            // dataInicial: "",
-            // dataFinal: ""
+            bilhetagemJson: [],
+            totalSemEconomia: 0,
+            totalComEconomia: 0,
+            dataInicial: "",
+            dataFinal: ""
         };
 
         this.child = React.createRef();
         this.handleChangeUser = this.handleChangeUser.bind(this);
         this.handleChangeImp = this.handleChangeImp.bind(this);
         this.handleChangeDpt = this.handleChangeDpt.bind(this);
-        this.somaValorSemEconomia = this.somaValorSemEconomia.bind(this);
-        // this.handleChangeDataIni = this.handleChangeDataIni.bind(this);
-        // this.handleChangeDataFim = this.handleChangeDataFim.bind(this)
+        this.handleChangeDataIni = this.handleChangeDataIni.bind(this);
+        this.handleChangeDataFim = this.handleChangeDataFim.bind(this);
     }
 
     handleChangeUser(event) {
         this.setState({usuCodigo: event.target.value});
-        // console.log(this.state)
     }
 
     handleChangeImp(event) {
@@ -40,38 +40,73 @@ export default class TicketingPage extends Component {
         this.setState({dptCodigo: event.target.value});
     }
 
-    // handleChangeDataIni(event) {
-    //     this.setState({dataInicial: event.target.value});
-    // }
+    handleChangeDataIni(event) {
+        this.setState({dataInicial: event.target.value});
+    }
 
-    // handleChangeDataFim(event) {
-    //     this.setState({dataFinal: event.target.value});
-    // }    
+    handleChangeDataFim(event) {
+        this.setState({dataFinal: event.target.value});
+    }    
 
     triggerChildAlert = () => {
+
         this.child.current.getAlert();
-    }  
+
+        // Cria variável das datas filtradas e trata os dados, concatenando "HHMMSS" como "000000"
+        var dataInicial = this.state.dataInicial;
+        var dataFinal = this.state.dataFinal;
+        dataInicial = dataInicial.replace("-", "").replace("-", "").replace("|", "").replace(":", "")
+        dataFinal = dataFinal.replace("-", "").replace("-", "").replace("|", "").replace(":", "")
+
+        var myHeaders = new Headers();
+        myHeaders.append("X-Requested-With", "XMLHttpRequest");
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+
+        // Concatena os valores dos filtros na URL
+        var url = "https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Bilhetagem?70EF42"
+        url += "&" + (dataInicial ? dataInicial + "000000" : "0")
+        url += "&" + (dataFinal ? dataFinal + "000000" : "0")
+        url += "&" + (this.state.usuCodigo ? this.state.usuCodigo : "0")
+        url += "&" + (this.state.impCodigo ? this.state.impCodigo : "0")
+        url += "&" + (this.state.dptCodigo ? this.state.dptCodigo : "0");
+
+        // Nova chamada na API com novos parâmetros e retorna os dados filtrados
+        fetch(url, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            this.setState({bilhetagemJson: data})
+            this.somaValorSemEconomia()
+            this.somaValorComEconomia()
+        })
+        .catch(error => console.log('error', error));  
+    }    
+
 
     somaValorSemEconomia() {
-        // var total = 0;
-        // for(let valor in this.state.bilhetagemJson) {
-        //     total = total + (this.state.valsemeconomia);
-        //     console.log(total)
-        // }
 
-        // var total = 0;
-        // this.state.bilhetagemJson.map(item => 
-        //     {item.valsemeconomia; console.log(item.valsemeconomia)}
-        // );
+        /* Soma todos os objetos "valsemeconomia" do JSON de bilhetagem 
+        e atribui o resultado total a totalSemEconomia */
+        let state = this.state;
+        let total = this.state.bilhetagemJson.reduce((total, valor) => total + valor.valsemeconomia, 0);
+        state.bilhetagemJson = []
+        this.setState({totalSemEconomia: total})
+        console.log(total)
 
-        console.log('valsemeconomia:', this.state.bilhetagemJson.valsemeconomia)
+    }
 
-        // let total = this.state.bilhetagemJson.reduce((total, valor) => total + valor.valsemeconomia, 0);
+    somaValorComEconomia() {
 
-        // let valorEconomia = this.state.bilhetagemJson;
-        // let total = this.state.bilhetagemJson.valsemeconomia.reduce((total, valor)) => total + valor.valsemeconomia, 0);
-        
-        
+        /* Soma todos os objetos "valcomeconomia" do JSON de bilhetagem 
+        e atribui o resultado total a totalComEconomia */
+        let state = this.state;
+        let total = this.state.bilhetagemJson.reduce((total, valor) => total + valor.valcomeconomia, 0);
+        state.bilhetagemJson = []
+        this.setState({totalComEconomia: total})
+
     }
     
     componentDidMount() {
@@ -84,10 +119,14 @@ export default class TicketingPage extends Component {
           redirect: 'follow'
         };
 
-        // Teste
+        // Chamada na API - Todos os resultados do método Bilhetagem
         fetch("https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Bilhetagem?70EF42", requestOptions)
         .then(response => response.json())
-        .then(data => this.setState({bilhetagemJson: data}))
+        .then(data => {
+            this.setState({bilhetagemJson: data})
+            this.somaValorSemEconomia()
+            this.somaValorComEconomia()
+        })
         .catch(error => console.log('error', error));
 
         // Chamada na API - Método Usuários
@@ -159,7 +198,7 @@ export default class TicketingPage extends Component {
                         </select>
                     </div>                    
                     {/* Filtro de Datas */}
-                    {/* <div className="filter date-filters-container">
+                    <div className="filter date-filters-container">
                         Período:
                         <div className="date-filters" id="init-date-filter">
                             <input type="date" value={this.state.dataInicial} onChange={this.handleChangeDataIni}/>
@@ -167,7 +206,7 @@ export default class TicketingPage extends Component {
                         <div className="date-filters" id="final-date-filter">
                             <input type="date" value={this.state.dataFinal} onChange={this.handleChangeDataFim}/>
                         </div>
-                    </div> */}
+                    </div>
 
                     <button onClick={this.triggerChildAlert} style={buttonStyle}>Filtrar</button>
                 </div>
@@ -214,10 +253,10 @@ export default class TicketingPage extends Component {
                     {/* INÍCIO - DADOS MONETÁRIOS DE ECONOMIA */}
                     <div className="valores-econo-container">
                         <div className="valores-econo" id="val-sem-econo">
-                            Total Sem Economia: R$ {this.somaValorSemEconomia()}
+                            Total Sem Economia: R$ {this.state.totalSemEconomia.toFixed(2)}
                         </div>
                         <div className="valores-econo" id="val-com-econo">
-                            Total Com Economia: R$
+                            Total Com Economia: R$ {this.state.totalComEconomia.toFixed(2)}
                         </div>
                     </div>
                     {/* FIM - DADOS MONETÁRIOS DE ECONOMIA */}

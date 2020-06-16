@@ -7,13 +7,18 @@ export default class TicketingTable extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            resultJson: []
+            resultJson: [],
         }
     }
 
     getAlert() {
 
-        console.log('usuCodigo:', this.props.valor.usuCodigo);
+        // Cria variável das datas filtradas e trata os dados, concatenando "HHMMSS" como "000000"
+        var dataInicial = this.props.valor.dataInicial;
+        var dataFinal = this.props.valor.dataFinal;
+        dataInicial = dataInicial.replace("-", "").replace("-", "").replace("|", "").replace(":", "")
+        dataFinal = dataFinal.replace("-", "").replace("-", "").replace("|", "").replace(":", "")
+        console.log(dataFinal)
 
         var myHeaders = new Headers();
         myHeaders.append("X-Requested-With", "XMLHttpRequest");
@@ -23,8 +28,10 @@ export default class TicketingTable extends Component {
           redirect: 'follow'
         };
 
-        // Concatena os valores dos filtros na URL
-        var url = "https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Bilhetagem?70EF42&0&0"
+        // Concatena os valores dos filtros selecionados na URL
+        var url = "https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Bilhetagem?70EF42"
+        url += "&" + (dataInicial ? dataInicial + "000000" : "0")
+        url += "&" + (dataFinal ? dataFinal + "000000" : "0")
         url += "&" + (this.props.valor.usuCodigo ? this.props.valor.usuCodigo : "0")
         url += "&" + (this.props.valor.impCodigo ? this.props.valor.impCodigo : "0")
         url += "&" + (this.props.valor.dptCodigo ? this.props.valor.dptCodigo : "0");
@@ -39,7 +46,7 @@ export default class TicketingTable extends Component {
 
     componentDidMount() {
 
-        // Solicitação de dados da API - retorna todos os dados disponíveis 
+        // Solicitação de dados da API - retorna todos os dados disponíveis e coloca na tabela
         var myHeaders = new Headers();
         myHeaders.append("X-Requested-With", "XMLHttpRequest");
         var requestOptions = {
@@ -58,7 +65,6 @@ export default class TicketingTable extends Component {
 
         // Estilização dos elementos da tabela
         const testeDiv = {
-            backgroundColor: 'red', //REMOVER COR VERMELHA!!!
             paddingTop: '30px',
             maxHeight: '300px',
             overflowY: 'scroll'
@@ -85,7 +91,6 @@ export default class TicketingTable extends Component {
             padding: '10px',  
             fontSize: '17px',
             color: '#bebebf',
-            borderBottom: '1px solid'
         }
 
         return(
@@ -112,32 +117,32 @@ export default class TicketingTable extends Component {
                                 <div style={tableCellDiv}>{item.usu_nome}</div>
                                 )}
                             </td>
-                            <td style={tableCellDiv}>{this.state.resultJson.map(item => 
-                                <div>{item.doc_computador}</div>
+                            <td>{this.state.resultJson.map(item => 
+                                <div style={tableCellDiv}>{item.doc_computador}</div>
                                 )}
                             </td>
-                            <td style={tableCellDiv}>{this.state.resultJson.map(item => 
-                                <div>{item.imp_nome}</div>
+                            <td>{this.state.resultJson.map(item => 
+                                <div style={tableCellDiv}>{item.imp_nome}</div>
                                 )}
                             </td>
-                            <td style={tableCellDiv}>{this.state.resultJson.map(item => 
-                                <div>{item.dpt_nome}</div>
+                            <td>{this.state.resultJson.map(item => 
+                                <div style={tableCellDiv}>{item.dpt_nome}</div>
                                 )}
                             </td>
-                            <td style={tableCellDiv}>{this.state.resultJson.map(item => 
-                                <div>{item.doc_nome}</div>
+                            <td>{this.state.resultJson.map(item => 
+                                <div style={tableCellDiv}>{item.doc_nome}</div>
                                 )}
                             </td>
-                            <td style={tableCellDiv}>{this.state.resultJson.map(item => 
-                                <div>{item.doc_data}</div>
+                            <td>{this.state.resultJson.map(item => 
+                                <div style={tableCellDiv}>{item.doc_data}</div>
                                 )}
                             </td>
-                            <td style={tableCellDiv}>{this.state.resultJson.map(item => 
-                                <div>{item.doc_paginas}</div>
+                            <td>{this.state.resultJson.map(item => 
+                                <div style={tableCellDiv}>{item.doc_paginas}</div>
                                 )}
                             </td>
-                            <td style={tableCellDiv}>{this.state.resultJson.map(item => 
-                                <div>{item.doc_porc}</div>
+                            <td>{this.state.resultJson.map(item => 
+                                <div style={tableCellDiv}>{item.doc_porc}</div>
                                 )}
                             </td>
                         </tr>
