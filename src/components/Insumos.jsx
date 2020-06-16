@@ -97,10 +97,9 @@ export default class Insumos extends Component {
         var dataInicial = this.state.dataInicial
         var dataFinal = this.state.dataFinal
         
-         state.inicio = dataInicial.replace("-", "").replace("-", "").replace("|", "").replace(":", "") + ""
-         state.final = dataFinal.replace("-", "").replace("-", "").replace("|", "").replace(":", "") + ""
-         state.dataInicial = dataInicial.replace("-", "").replace("-", "").replace("|", "").replace(":", "") + ""
-         state.dataFinal = dataFinal.replace("-", "").replace("-", "").replace("|", "").replace(":", "") + ""
+        //Formatação da data na url
+         dataInicial = dataInicial.replace("-", "").replace("-", "").replace("|", "").replace(":", "") + ""
+         dataFinal = dataFinal.replace("-", "").replace("-", "").replace("|", "").replace(":", "") + ""
          state.data = []
 
 
@@ -120,8 +119,8 @@ export default class Insumos extends Component {
         //Adicionando os parametros na url base
 
         url +=  ("" ? '&' + "" : "" )
-        url += '&' + (this.state.dataInicial ? this.state.dataInicial : 0 )
-        url += '&' + (this.state.dataFinal ? this.state.dataFinal : 0 )
+        url += '&' + (dataInicial ? dataInicial : 0 )
+        url += '&' + (dataFinal ? dataFinal : 0 )
         url += '&' + (this.state.usuarioSelecionado ? this.state.usuarioSelecionado : 0 )
         url += '&' + (this.state.imp_selecionada ? this.state.imp_selecionada : 0 )
         url += '&' + (this.state.dept_selecionado ? this.state.dept_selecionado : 0 )
@@ -218,7 +217,7 @@ export default class Insumos extends Component {
                             <div className="col-4">
 
                                 <select className="user col-11" value={this.state.usuarioSelecionado} onChange={this.handleChangeUsuario}>
-                                    <option>Usuarios</option>
+                                    <option value="" selected >Sel. Usuarios</option> {/*Estado Inicial de Usuarios*/}
                                     {usuarios}
                                 </select>
 
@@ -226,7 +225,7 @@ export default class Insumos extends Component {
                             <div className="col-4">
 
                                 <select className="user col-11" value={this.state.imp_selecionada} onChange={this.handleChangeImpressora} style={{ marginLeft: 10 }}>
-                                    <option>impressora</option>
+                                    <option value="" selected >Sel. Impressora</option>{/*Estado Inicial de Impressora*/}
                                     {impressoras}
                                 </select>
 
@@ -234,7 +233,7 @@ export default class Insumos extends Component {
                             <div className="col-4">
 
                                 <select className="user col-11" value={this.state.dept_selecionado} onChange={this.handleChangeDepartamento} style={{ marginLeft: -20 }}>
-                                    <option>Departamento</option>
+                                    <option value="" selected >Sel. Departamento</option>{/*Estado Inicial de Departamento*/}
                                     {departamentos}
                                 </select>
 
@@ -249,7 +248,7 @@ export default class Insumos extends Component {
                             <div className="col-6 " style={{ marginLeft: -15 }}>
 
                                 <input className="d-start" type="date" value={this.state.dataInicial} onChange={(e) => this.setState({ dataInicial: e.target.value })} />
-
+                                
                             </div>
                             <div className="col-6" style={{ marginLeft: -15 }}>
                                 <input className="d-end" type="date" value={this.state.dataFinal} onChange={(e) => this.setState({ dataFinal: e.target.value })} />
