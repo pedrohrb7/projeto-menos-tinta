@@ -7,16 +7,13 @@ export default class TicketingTable extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            resultJson: [],
-            usuCodigo: "",
-            impCodigo: "",
-            dptCodigo: ""
+            resultJson: []
         }
     }
 
     getAlert() {
-        // console.log('selectedFilters:', this.props)
-        console.log('usuCodigo:', this.props);
+
+        console.log('usuCodigo:', this.props.valor.usuCodigo);
 
         var myHeaders = new Headers();
         myHeaders.append("X-Requested-With", "XMLHttpRequest");
@@ -26,18 +23,13 @@ export default class TicketingTable extends Component {
           redirect: 'follow'
         };
 
-        // this.state.selectedFilters.toString();
-
-        // this.setstate({selectedFilters: {valor: { usuCodigo: "", impCodigo: "", dptCodigo: ""}}})
-
+        // Concatena os valores dos filtros na URL
         var url = "https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Bilhetagem?70EF42&0&0"
-        url += "&" + (this.state.usuCodigo ? this.state.usuCodigo : "0")
-        url += "&" + (this.state.impCodigo ? this.state.impCodigo : "0")
-        url += "&" + (this.state.dptCodigo ? this.state.dptCodigo : "0");
-        // url += '&'+(params['imp_codigo'] ? params['imp_codigo'] : 0);
-        // url += '&'+(params['dpt_codigo'] ? params['dpt_codigo'] : 0);
-        // console.log(url)
+        url += "&" + (this.props.valor.usuCodigo ? this.props.valor.usuCodigo : "0")
+        url += "&" + (this.props.valor.impCodigo ? this.props.valor.impCodigo : "0")
+        url += "&" + (this.props.valor.dptCodigo ? this.props.valor.dptCodigo : "0");
 
+        // Nova chamada na API com novos parâmetros e retorna os dados filtrados
         fetch(url, requestOptions)
         .then(response => response.json())
         .then(data => this.setState({resultJson: data}))
@@ -47,7 +39,7 @@ export default class TicketingTable extends Component {
 
     componentDidMount() {
 
-        // Solicitação de dados da API 
+        // Solicitação de dados da API - retorna todos os dados disponíveis 
         var myHeaders = new Headers();
         myHeaders.append("X-Requested-With", "XMLHttpRequest");
         var requestOptions = {
@@ -55,10 +47,11 @@ export default class TicketingTable extends Component {
           headers: myHeaders,
           redirect: 'follow'
         };
+
         fetch("https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Bilhetagem?70EF42", requestOptions)
         .then(response => response.json())
         .then(data => this.setState({resultJson: data}))
-        .catch(error => console.log('error', error));    
+        .catch(error => console.log('error', error));
     } 
 
     render() {
@@ -96,6 +89,7 @@ export default class TicketingTable extends Component {
         }
 
         return(
+
             <div style={testeDiv} id="ticketing-table-container">
                 <Table style={tableStyle} id="ticketing-table" className="table">
                 {/* <table> */}

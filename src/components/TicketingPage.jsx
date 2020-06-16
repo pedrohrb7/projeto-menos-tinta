@@ -12,7 +12,8 @@ export default class TicketingPage extends Component {
             impJson: [],
             impCodigo: "",
             dptJson: [],
-            dptCodigo: ""
+            dptCodigo: "",
+            bilhetagemJson: []
             // dataInicial: "",
             // dataFinal: ""
         };
@@ -21,6 +22,7 @@ export default class TicketingPage extends Component {
         this.handleChangeUser = this.handleChangeUser.bind(this);
         this.handleChangeImp = this.handleChangeImp.bind(this);
         this.handleChangeDpt = this.handleChangeDpt.bind(this);
+        this.somaValorSemEconomia = this.somaValorSemEconomia.bind(this);
         // this.handleChangeDataIni = this.handleChangeDataIni.bind(this);
         // this.handleChangeDataFim = this.handleChangeDataFim.bind(this)
     }
@@ -48,8 +50,30 @@ export default class TicketingPage extends Component {
 
     triggerChildAlert = () => {
         this.child.current.getAlert();
-    }
+    }  
 
+    somaValorSemEconomia() {
+        // var total = 0;
+        // for(let valor in this.state.bilhetagemJson) {
+        //     total = total + (this.state.valsemeconomia);
+        //     console.log(total)
+        // }
+
+        // var total = 0;
+        // this.state.bilhetagemJson.map(item => 
+        //     {item.valsemeconomia; console.log(item.valsemeconomia)}
+        // );
+
+        console.log('valsemeconomia:', this.state.bilhetagemJson.valsemeconomia)
+
+        // let total = this.state.bilhetagemJson.reduce((total, valor) => total + valor.valsemeconomia, 0);
+
+        // let valorEconomia = this.state.bilhetagemJson;
+        // let total = this.state.bilhetagemJson.valsemeconomia.reduce((total, valor)) => total + valor.valsemeconomia, 0);
+        
+        
+    }
+    
     componentDidMount() {
 
         var myHeaders = new Headers();
@@ -59,6 +83,12 @@ export default class TicketingPage extends Component {
           headers: myHeaders,
           redirect: 'follow'
         };
+
+        // Teste
+        fetch("https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Bilhetagem?70EF42", requestOptions)
+        .then(response => response.json())
+        .then(data => this.setState({bilhetagemJson: data}))
+        .catch(error => console.log('error', error));
 
         // Chamada na API - Método Usuários
         fetch("https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Usuarios?70EF42", requestOptions)
@@ -81,22 +111,6 @@ export default class TicketingPage extends Component {
 
     render(){
 
-        //Estilo filtros 
-        // const divStyle = {
-        //     padding: '10px',
-        //     display: 'flex',
-        // };
-
-        // const selectStyle = {
-        //     fontFamily: '"Roboto", sans-serif',
-        //     fontSize: 15,
-        //     color: 'gray',
-        //     border: 'solid 2px #e9e9e9',
-        //     borderRadius: 5,
-        //     padding: '5px 60px 5px 10px',
-        //     height: '40px'
-        // };
-
         //Estilo botão de envio dos filtros
         const buttonStyle = { 
             backgroundColor: '#5babdf',
@@ -108,8 +122,7 @@ export default class TicketingPage extends Component {
             padding: '5px 30px',
             height: '40px',
             border: 'none',
-            borderRadius: 20,
-            // boxShadow: ,
+            borderRadius: 20
         };
 
         return(
@@ -201,7 +214,7 @@ export default class TicketingPage extends Component {
                     {/* INÍCIO - DADOS MONETÁRIOS DE ECONOMIA */}
                     <div className="valores-econo-container">
                         <div className="valores-econo" id="val-sem-econo">
-                            Total Sem Economia: R$
+                            Total Sem Economia: R$ {this.somaValorSemEconomia()}
                         </div>
                         <div className="valores-econo" id="val-com-econo">
                             Total Com Economia: R$
