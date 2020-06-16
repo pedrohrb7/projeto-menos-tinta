@@ -44,29 +44,30 @@ class UserInsert extends React.Component {
 		// 		alert(result);
 		// 	})
 		// 	.catch((error) => console.log("error", error));
-		
-		fetch(
-			"'https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/UsuarioInsert?0877" +
-				"&" +
-				this.state.nome +
-				"&" +
-				this.state.senha +
-				"&" +
-				this.state.departamento +
-				"& x & x & x & x & x &" +
-				this.state.email +
-				"'",
-			{
+
+		var apiUrl =
+			"https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/UsuarioInsert?0877";
+
+		(apiUrl +=
+			"&" +
+			this.state.nome +
+			"&" +
+			this.state.senha +
+			"&" +
+			this.state.departamento +
+			"& x & x & x & x & x &" +
+			this.state.email),
+
+			fetch(apiUrl, {
 				method: "GET",
 				headers: myHeaders,
-			}
-		)
-			.then((res) => res.json())
-			.then((result) => {
-				alert(result);
-				console.log(result);
 			})
-			.catch((error) => console.log("error", error));
+				.then((res) => res.json())
+				.then((result) => {
+					alert(result);
+					console.log(result);
+				})
+				.catch((error) => console.log("error", error));
 	}
 
 	render() {

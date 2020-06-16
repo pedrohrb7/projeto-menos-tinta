@@ -3,18 +3,18 @@ import { ListGroup, ListGroupItem } from "reactstrap";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import "./Menu.css";
+import "./SideMenu.css";
 import userSide from "../../_imgs/user-cog.svg";
 import ticketingSide from "../../_imgs/print.svg";
 import chartSide from "../../_imgs/chart-bar.svg";
 import chartPieSide from "../../_imgs/chart-pie.svg";
 import supplySide from "../../_imgs/fill-drip.svg";
 
-import UserList from "../../pages/UserList";
+import UserList from "../../pages/UserListPage";
 import Ticketing from "../../pages/TicketingPage";
-import Iventory from "../../pages/InventoryReceipt";
-import Economy from "../../pages/Economy";
-import Graphics from "../../pages/Graphics";
+import Iventory from "../../pages/InventoryReceiptPage";
+import Economy from "../../pages/EconomyPage";
+import Graphics from "../../pages/GraphicsPage";
 
 const SideMenu = (props) => {
 	return (
@@ -34,7 +34,7 @@ const SideMenu = (props) => {
 								</Link>
 							</ListGroupItem>
 							<ListGroupItem>
-								<Link exact to="/estatisticaEconomia">
+								<Link to="/estatisticaEconomia">
 									<img
 										src={chartSide}
 										className="icon"
@@ -44,7 +44,7 @@ const SideMenu = (props) => {
 								</Link>
 							</ListGroupItem>
 							<ListGroupItem>
-								<Link exact to="/graficos">
+								<Link to="/graficos">
 									<img
 										src={chartPieSide}
 										className="icon"
@@ -54,7 +54,7 @@ const SideMenu = (props) => {
 								</Link>
 							</ListGroupItem>
 							<ListGroupItem>
-								<Link exact to="/entradaInsumos">
+								<Link to="/entradaInsumos">
 									<img
 										src={supplySide}
 										className="icon"
@@ -64,7 +64,7 @@ const SideMenu = (props) => {
 								</Link>
 							</ListGroupItem>
 							<ListGroupItem className="side-list">
-								<Link exact to="/usuarios">
+								<Link to="/usuarios">
 									<img
 										src={userSide}
 										className="icon"

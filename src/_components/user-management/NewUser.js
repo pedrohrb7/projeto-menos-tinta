@@ -3,7 +3,7 @@ import { Col, Row, Button, Modal, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import imgTeste from "../../_imgs/user-circle.svg";
-// import UserInsert from './UserInsert';
+import UserInsert from "./UserInsert";
 
 import "./User-Management.css";
 
@@ -38,7 +38,7 @@ function NewUser(props) {
 
 				<Modal.Body>
 					<div className="container content">
-						{/* <UserInsert /> */}
+						<UserInsert />
 					</div>
 				</Modal.Body>
 			</Modal>

@@ -130,7 +130,7 @@ export default class Insumos extends Component {
         console.log(url)
 
         // fetch('https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/EntradasEstoque?9986D8', requestOptions)
-        fetch(url)
+        fetch(url, requestOptions)
             .then(rest => rest.json())
             .then(data => {
                 state.data = data

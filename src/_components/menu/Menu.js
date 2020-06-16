@@ -9,11 +9,6 @@ import Button from "react-bootstrap/Button";
 import "./Menu.css";
 import MenosTinta from "../../_imgs/logo-branco.png";
 import loggedUser from "../../_imgs/user-circle.svg";
-// import userSide from "../../_imgs/user-cog.svg";
-// import ticketingSide from "../../_imgs/print.svg";
-// import chartSide from "../../_imgs/chart-bar.svg";
-// import chartPieSide from "../../_imgs/chart-pie.svg";
-// import supplySide from "../../_imgs/fill-drip.svg";
 
 const Menu = (props) => {
 	return (
@@ -33,7 +28,7 @@ const Menu = (props) => {
 						</Button>
 						<NavbarText collapse className="login-session">
 							<a href="#login">
-								<img src={loggedUser} className="logged-user" />
+								<img src={loggedUser} className="logged-user" alt="usuário logado icone" />
 								{/* Aqui será inserido o user da sessao */}
 								username
 							</a>
