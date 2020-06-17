@@ -10,6 +10,7 @@ import UserList from "../../pages/UserListPage";
 import Iventory from "../../pages/InventoryReceiptPage";
 import Economy from "../../pages/EconomyPage";
 import Graphics from "../../pages/GraphicsPage";
+// import TicketingPage from "../../pages/TicketingPage";
 
 import userSide from "../../_imgs/user-cog.svg";
 import ticketingSide from "../../_imgs/print.svg";

@@ -1,0 +1,44 @@
+.area-grafico {
+    width: 85%;
+    margin: 0 7.5%;
+    border-radius: 25px;
+    box-shadow: 1px 2px 8px #dcdcdc;    
+    margin-bottom: 30px;
+}
+
+.area-grafico h2 {
+    background-color: red;
+    color: #FFF;
+    padding: 18px;
+    box-sizing: border-box;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.area-grafico h2.green {
+    background-color: green;
+}
+
+.area-grafico h2.blue {
+    background-color: blue;
+}
+
+.area-grafico h2.pink {
+    background-color: #ff007f;
+}
+
+.area-grafico h2.violet {
+    background-color: #EE82EE;
+}
+
+#grafico5 {
+    border-radius: 25px;
+}
+
+#grafico4 {
+    border-radius: 25px;
+}
+
+
+
+
