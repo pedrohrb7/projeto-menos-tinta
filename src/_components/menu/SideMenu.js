@@ -25,7 +25,7 @@ const SideMenu = () => {
 				<div>
 					<Router>
 						<Row>
-							<Col sm={4}>
+							<Col sm={3}>
 								<ListGroup>
 									<ListGroupItem>
 										<Link exact to="/bilhetagem">
@@ -79,7 +79,7 @@ const SideMenu = () => {
 									</ListGroupItem>
 								</ListGroup>
 							</Col>
-							<Col sm={8}>
+							<Col sm={9}>
 								<Switch>
 									<Route path="/bilhetagem" exact component={Ticketing}>
 										{/* <Ticketing /> */}
