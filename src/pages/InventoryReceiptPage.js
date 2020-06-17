@@ -8,15 +8,16 @@ import InventoryReciepts from "../_components/inventory-receipt/Insumos";
 function Inventory() {
 	return (
 		<>
-			<Menu />
+			<InventoryReciepts />
+			{/* <Menu />
 			<Row>
 				<Col sm={4}>
 					<SideMenu />
 				</Col>
 				<Col sm={8}>
-					<InventoryReciepts />
+				
 				</Col>
-			</Row>
+			</Row> */}
 		</>
 	);
 }

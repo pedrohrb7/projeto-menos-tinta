@@ -4,14 +4,20 @@ import { Row, Col } from "reactstrap";
 
 import App from "./pages/App";
 // import Login from "./pages/LoginPage";
-import Menu from "./_components/menu/Menu";
-import SideMenu from "./_components/menu/SideMenu";
+// import Menu from "./_components/menu/Menu";
+// import SideMenu from "./_components/menu/SideMenu";
 
 ReactDOM.render(
 	<React.StrictMode>
 		{/* <Login /> */}
 		<>
-			<Menu />
+			<App/>
+			{/* <Row>
+				<Col sm={12}>
+					<Menu />
+				</Col>
+			</Row>
+
 			<Row>
 				<Col sm={4}>
 					<SideMenu />
@@ -19,7 +25,7 @@ ReactDOM.render(
 				<Col sm={8}>
 					<App />
 				</Col>
-			</Row>
+			</Row>*/}
 		</>
 	</React.StrictMode>,
 	document.getElementById("root")

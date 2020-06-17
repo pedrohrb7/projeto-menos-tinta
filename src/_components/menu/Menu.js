@@ -16,7 +16,7 @@ const Menu = (props) => {
 			<div className="content-fluid">
 				<Navbar expand="md" className="menu-top">
 					<div className="container">
-						<NavbarBrand href="/">
+						<NavbarBrand href="/bilhetagem">
 							<img
 								src={MenosTinta}
 								className="d-inline-block align-top menos-tinta-logo"

@@ -8,15 +8,15 @@ import StatisticEconomy from "../_components/estatistica/EstatiscaDeEconomia";
 function Economy() {
 	return (
 		<>
-			<Menu />
+			{/* <Menu />
 			<Row>
 				<Col sm={4}>
 					<SideMenu />
 				</Col>
-				<Col sm={8}>
+				<Col sm={8}> */}
 					<StatisticEconomy />
-				</Col>
-			</Row>
+				{/* </Col>
+			</Row> */}
 		</>
 	);
 }
