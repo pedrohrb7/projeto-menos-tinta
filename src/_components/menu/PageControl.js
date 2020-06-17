@@ -1,27 +1,28 @@
 import React from "react";
-import { ListGroup, ListGroupItem } from "reactstrap";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { ListGroup, ListGroupItem, Col, Row } from "reactstrap";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-import "./SideMenu.css";
+import "./PageControl.css";
+
+import Ticketing from "../../pages/TicketingPage";
+import UserList from "../../pages/UserListPage";
+import Iventory from "../../pages/InventoryReceiptPage";
+import Economy from "../../pages/EconomyPage";
+import Graphics from "../../pages/GraphicsPage";
+
 import userSide from "../../_imgs/user-cog.svg";
 import ticketingSide from "../../_imgs/print.svg";
 import chartSide from "../../_imgs/chart-bar.svg";
 import chartPieSide from "../../_imgs/chart-pie.svg";
 import supplySide from "../../_imgs/fill-drip.svg";
 
-import UserList from "../../pages/UserListPage";
-import Ticketing from "../../pages/TicketingPage";
-import Iventory from "../../pages/InventoryReceiptPage";
-import Economy from "../../pages/EconomyPage";
-import Graphics from "../../pages/GraphicsPage";
-
-const SideMenu = (props) => {
+const PageControl = () => {
 	return (
-		<>
-			<div className="side-menu">
-				<div>
-					<Router>
+		<Router>
+			<Row>
+				<Col sm={4}>
+					<div className="side-menu">
 						<ListGroup>
 							<ListGroupItem>
 								<Link exact to="/bilhetagem">
@@ -63,7 +64,7 @@ const SideMenu = (props) => {
 									Entradas de Insumos
 								</Link>
 							</ListGroupItem>
-							<ListGroupItem className="side-list">
+							<ListGroupItem>
 								<Link to="/usuarios">
 									<img
 										src={userSide}
@@ -74,29 +75,20 @@ const SideMenu = (props) => {
 								</Link>
 							</ListGroupItem>
 						</ListGroup>
-
-						<Switch>
-							<Route path="/bilhetagem">
-								<Ticketing />
-							</Route>
-							<Route path="/estatisticaEconomia">
-								<Economy />
-							</Route>
-							<Route path="/graficos">
-								<Graphics />
-							</Route>
-							<Route path="/entradaInsumos">
-								<Iventory />
-							</Route>
-							<Route path="/usuarios">
-								<UserList />
-							</Route>
-						</Switch>
-					</Router>
-				</div>
-			</div>
-		</>
+					</div>
+				</Col>
+				<Col sm={8}>
+					<Switch>
+						<Route path="/bilhetagem" exact component={Ticketing} />
+						<Route path="/estatisticaEconomia" component={Economy} />
+						<Route path="/graficos" component={Graphics} />
+						<Route path="/entradaInsumos" component={Iventory} />
+						<Route path="/usuarios" component={UserList} />
+					</Switch>
+				</Col>
+			</Row>
+		</Router>
 	);
 };
 
-export default SideMenu;
+export default PageControl;
