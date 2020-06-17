@@ -1,7 +1,9 @@
 import React from "react";
 
-function Graphics() {
+import Graphics from "../_components/graficos/Graficos"
+
+function GraphicsPage() {
 	return <Graphics />;
 }
 
-export default Graphics;
+export default GraphicsPage;
