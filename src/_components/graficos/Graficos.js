@@ -55,9 +55,9 @@ export default class Graficos extends Component {
 						value={final}
 						onChange={(e) => this.setState({ final: e.target.value })}
 					/>
-					<a href="#" className="btn-consultar" onClick={() => this.consulta()}>
+					<button className="btn-consultar" onClick={() => this.consulta()}>
 						Consultar
-					</a>
+					</button>
 				</div>
 				<div className="areaGrafico">
 					<div>{this.state.apt ? <Grafico5 /> : ""}</div>

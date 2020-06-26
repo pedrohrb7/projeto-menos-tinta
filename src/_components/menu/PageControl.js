@@ -10,6 +10,7 @@ import UserList from "../../pages/UserListPage";
 import Iventory from "../../pages/InventoryReceiptPage";
 import Economy from "../../pages/EconomyPage";
 import Graphics from "../../pages/GraphicsPage";
+import Menu from './Menu';
 // import TicketingPage from "../../pages/TicketingPage";
 
 import userSide from "../../_imgs/user-cog.svg";
@@ -20,6 +21,7 @@ import supplySide from "../../_imgs/fill-drip.svg";
 
 const PageControl = () => {
 	return (
+		
 		<Router>
 			<Row>
 				<Col sm={4}>
@@ -80,7 +82,7 @@ const PageControl = () => {
 				</Col>
 				<Col sm={8}>
 					<Switch>
-						<Route path="/bilhetagem" exact component={Ticketing} />
+						<Route path="/PageControl" exact component={Ticketing} />
 						<Route path="/estatisticaEconomia" component={Economy} />
 						<Route path="/graficos" component={Graphics} />
 						<Route path="/entradaInsumos" component={Iventory} />

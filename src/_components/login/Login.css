@@ -4,36 +4,44 @@
     font-size: 16px;
 }
 
-html, body {
+html, body{
     height: 100%;
 }
 
-body {
-    background-image: url(../assets/images/inferior.svg), 
-                      url(../assets/images/logo.png),
-                      url(../assets/images/superior.svg);
+
+
+.login{
+
+    background-image: url(../../_imgs/inferior.svg), 
+                      url(../../_imgs/logo.png),
+                      url(../../_imgs/superior.svg);
+                     
     background-repeat: no-repeat, no-repeat, no-repeat;
-    background-position: left bottom, center 10%, right top;                   
+    background-position: left bottom, center 10%, right top;
+    width: 100%;
+    height: 100%;                   
 }
 
-.container {
-    width: 100%;  
+.container-login {
+    width: 100%;
+    height: 100vh; 
     display: flex; 
     justify-content: center; 
 }
 
 .box-login {
-    height: 50%;
+    width: 17%;
+    height: 429px;
     margin-top: 12%;
-    padding: 20px;   
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
-    text-align: center; 
+    text-align: center;
 }
 
 label {
     font-size: 1em;
-    margin-left: 1%;
+    margin-left: 17%;
     margin-bottom: 1%;
     color: #EB058C;
     display: block;
@@ -51,7 +59,7 @@ input::placeholder {
     font-size: 0.60em;
 }
 
-button {
+.button-login {
     width:50%;
     height: 5vh;
     color: #fff;
@@ -64,7 +72,7 @@ button {
     margin: 2vh 0;
 }
 
-button:hover {
+.button-login:hover {
     background-color: rgb(187, 6, 111); 
     cursor: pointer;
 }
@@ -94,7 +102,7 @@ a {
 
 @media screen and (min-width:320px) and (max-width: 645px) {
     body {
-       background: none, url(../assets/images/logo.png), none;
+       background: none, url(../../_imgs/logo.png), none;
        background-repeat: no-repeat;
        background-position: center 10%;
      
