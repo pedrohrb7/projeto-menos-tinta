@@ -21,19 +21,11 @@ span {
 }
 
 table {
-	/* border-collapse: collapse; */
 	font-size: small;
 	text-align: left;
-	/* margin-bottom: 20px;
-	margin-top: 10%; */
-	margin: 10% 0 10px 0;
-	/* margin-right: 20em; */
-}
 
-/* tbody {
-	border-left: 1px solid rgba(173, 170, 170, 0.973);
-	border-right: 1px solid rgba(173, 170, 170, 0.973);
-} */
+	margin: 10% 0 10px 0;
+}
 
 tbody tr:hover {
 	color: #212529;
@@ -61,36 +53,15 @@ td {
 th,
 td {
 	padding: 10px;
-	/* border-bottom: 1px solid rgba(173, 170, 170, 0.973); */
 }
 
 .content {
-	/* padding: 100pxs; */
 	margin: 20px 0;
 	padding: 0 30px;
-	/* border: 1px solid red; */
-	/* background-color: aquamarine; */
 }
 
-/* 
-.table-user-left {
-	border-left: 1px solid #ccc;
-	border-top-left-radius: 20px;
-}
-
-.table-user-right {
-	border-right: 1px solid #ccc;
-	border-top-right-radius: 20px;
-} */
-
-/* 
-Max width before this PARTICULAR table gets nasty
-This query will take effect for any screen smaller than 760px
-and also iPads specifically.
-*/
 @media only screen and (max-width: 760px),
 	(min-device-width: 768px) and (max-device-width: 1024px) {
-	/* Force table to not be like tables anymore */
 	table,
 	thead,
 	tbody,
@@ -100,7 +71,6 @@ and also iPads specifically.
 		display: block;
 	}
 
-	/* Hide table headers (but not display: none;, for accessibility) */
 	thead tr {
 		position: absolute;
 		top: -9999px;
@@ -112,17 +82,13 @@ and also iPads specifically.
 	}
 
 	td {
-		/* Behave  like a "row" */
 		border: none;
 		border-bottom: 1px solid #eee;
 		position: relative;
-		/* padding-left: 50%; */
 	}
 
 	td:before {
-		/* Now like a table header */
 		position: absolute;
-		/* Top/left values mimic padding */
 		top: 6px;
 		left: 6px;
 		width: 45%;
@@ -163,10 +129,8 @@ th.actions {
 
 .label-form {
 	color: #eb058c;
-	/* font-weight: bold; */
 }
 
 .user-codigo {
 	margin-left: 5px;
 }
-
