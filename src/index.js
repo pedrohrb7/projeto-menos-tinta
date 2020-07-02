@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+
 import App from "./pages/App";
+import Routes from './router';
+import history from './history';
+
 
 ReactDOM.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>,
+	<div>
+		<Routes history={history}/>
+	</div>,
 	document.getElementById("root")
 );
