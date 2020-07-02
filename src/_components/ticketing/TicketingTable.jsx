@@ -58,7 +58,24 @@ export default class TicketingTable extends Component {
 
         fetch("https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Bilhetagem?70EF42", requestOptions)
         .then(response => response.json())
-        .then(data => this.setState({resultJson: data}))
+        .then(data => {this.setState({resultJson: data}) 
+            data.map(item => {
+                var year = item.doc_data.toString().substring(0, 4)
+                var month = item.doc_data.toString().substring(4, 6)
+                var day = item.doc_data.toString().substring(6, 8)
+                item.doc_data = day + '/' + month + '/' + year
+
+                var rowPorc = ''
+                if (item.doc_porc <= 15) {
+                    rowPorc = '#f9bbe0'
+                } else if (item.doc_porc > 15 && item.doc_porc <= 50) {
+                    rowPorc = '#f8e583'
+                } else {
+                    rowPorc = '#94b5d7'
+                }
+                item.row_color = rowPorc
+            }
+        )})
         .catch(error => console.log('error', error));
     } 
 
@@ -82,9 +99,21 @@ export default class TicketingTable extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr> 
+                        {this.state.resultJson.map(item => 
+                            <tr style={{ backgroundColor: item.row_color }} className="table-cell">
+                                <td>{item.usu_nome}</td>
+                                <td>{item.doc_computador}</td>
+                                <td>{item.imp_nome}</td>
+                                <td>{item.dpt_nome}</td>
+                                <td>{item.doc_nome}</td>
+                                <td>{item.doc_data}</td>
+                                <td>{item.doc_paginas}</td>
+                                <td>{item.doc_porc}</td>
+                            </tr>
+                        )}
+                        {/* <tr>  */}
                             {/* Coloca os dados do JSON do método Bilhetagem na tabela */}
-                            <td>{this.state.resultJson.map(item => 
+                            {/* <td>{this.state.resultJson.map(item => 
                                 <div className="table-cell">{item.usu_nome}</div>
                                 )}
                             </td>
@@ -115,8 +144,8 @@ export default class TicketingTable extends Component {
                             <td>{this.state.resultJson.map(item => 
                                 <div className="table-cell">{item.doc_porc}</div>
                                 )}
-                            </td>
-                        </tr>
+                            </td> */}
+                        {/* </tr> */}
                     </tbody>
                 {/* </table> */}
                 </Table>
