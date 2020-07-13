@@ -11,64 +11,46 @@ class UserInsert extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleChange(event) {
+	handleChange = (event) => {
 		this.setState({ nome: event.target.nome });
 		this.setState({ senha: event.target.senha });
 		this.setState({ departamento: event.target.departamento });
 		this.setState({ email: event.target.email });
-	}
+	};
 
-	handleSubmit(event) {
+	handleSubmit = (event) => {
+		console.log(
+			this.state.nome,
+			this.state.senha,
+			this.state.departamento,
+			this.state.email
+		);
 		event.preventDefault();
 
 		var myHeaders = new Headers();
 		myHeaders.append("X-Requested-With", "XMLHttpRequest");
-
-		// fetch(
-		// 	"https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/UsuarioInsert?0877",
-		// 	{
-		// 		method: "GET",
-		// 		headers: myHeaders,
-		// 	},
-
-		// 	JSON.stringify({
-		// 		nome: event.target.nome,
-		// 		senha: event.target.senha,
-
-		// 		departamento: event.target.departamento,
-		// 		email: event.target.email,
-		// 	})
-		// )
-		// 	.then((res) => res.json())
-		// 	.then((result) => {
-		// 		alert(result);
-		// 	})
-		// 	.catch((error) => console.log("error", error));
+		var requestOptions = {
+			method: "GET",
+			headers: myHeaders,
+			redirect: "follow",
+		};
 
 		var apiUrl =
 			"https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/UsuarioInsert?0877";
 
-		(apiUrl +=
-			"&" +
-			this.state.nome +
-			"&" +
-			this.state.senha +
-			"&" +
-			this.state.departamento +
-			"& x & x & x & x & x &" +
-			this.state.email),
+		apiUrl += "&" + this.state.nome;
+		apiUrl += "&" + this.state.senha;
+		apiUrl += "&" + this.state.departamento;
+		apiUrl += "&1&S&S&124&estacao";
+		apiUrl += "&" + this.state.email;
 
-			fetch(apiUrl, {
-				method: "GET",
-				headers: myHeaders,
+		fetch(apiUrl, requestOptions)
+			.then((result) => {
+				console.log(result);
+				console.log(apiUrl);
 			})
-				.then((res) => res.json())
-				.then((result) => {
-					alert(result);
-					console.log(result);
-				})
-				.catch((error) => console.log("error", error));
-	}
+			.catch((error) => console.log("error", error));
+	};
 
 	render() {
 		return (
@@ -76,7 +58,7 @@ class UserInsert extends React.Component {
 				<Form.Group controlId="formName">
 					<Form.Label className="label-form">Nome</Form.Label>
 					<Form.Control
-						value={this.state.nome}
+						ref={this.state.nome}
 						onChange={this.handleChange}
 						type="text"
 						placeholder="Nome"
@@ -86,7 +68,7 @@ class UserInsert extends React.Component {
 				<Form.Group controlId="formPassword">
 					<Form.Label className="label-form">Senha</Form.Label>
 					<Form.Control
-						value={this.state.senha}
+						ref={this.state.senha}
 						onChange={this.handleChange}
 						type="password"
 						placeholder="Senha"
@@ -96,7 +78,7 @@ class UserInsert extends React.Component {
 				<Form.Group controlId="formEmail">
 					<Form.Label className="label-form">Email</Form.Label>
 					<Form.Control
-						value={this.state.email}
+						ref={this.state.email}
 						onChange={this.handleChange}
 						type="email"
 						placeholder="Email"
@@ -106,7 +88,7 @@ class UserInsert extends React.Component {
 				<Form.Group controlId="formDepto">
 					<Form.Label className="label-form">Departamento</Form.Label>
 					<Form.Control
-						value={this.state.departamento}
+						ref={this.state.departamento}
 						onChange={this.handleChange}
 						type="text"
 						placeholder="Departamento"

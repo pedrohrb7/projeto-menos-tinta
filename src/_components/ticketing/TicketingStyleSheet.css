@@ -5,8 +5,8 @@
     justify-content: center;
     align-items: flex-end;
     padding-top: 20px;
-    margin: auto;
-    justify-content: space-between;
+    /* margin: auto; */
+    /* justify-content: space-between; */
     padding: 20px 25px 20px 20px;
 }
 
@@ -48,7 +48,7 @@ select {
     padding: 5px 60px 5px 10px;*/
     border: solid 2px #e9e9e9;
     height: 35px;
-    width: 12em;
+    width: 9em;
     padding: 2px;
     padding-left: 5px;
     color:gray;
@@ -57,11 +57,15 @@ select {
 }
 
 input {
-    font-family: "Roboto", sans-serif;
-    font-size: 15px;
     color: gray;
     border: solid 2px #e9e9e9;
     border-radius: 5px;
+}
+
+.datefilters,input {
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    width: 9em;
 }
 
 /* CONTAINER DE ELEMENTOS ABAIXO DA TABELA */
@@ -113,7 +117,7 @@ label {
 
 /* TABELA */
 
-div#ticketing-table-container {
+div #ticketing-table-container {
     padding-top: 20px;
     max-height: 300px;
     overflow-y: scroll;
@@ -128,11 +132,15 @@ div#ticketing-table-container {
     border-top: none;
 }
 
+table td { 
+    color: black;
+}
+
 .table-cell {
     padding: 10px 0;  
     height: 60px;
     font-size: 17px;
-    color: #757575;
+    color: black;
 }
 
 thead {
