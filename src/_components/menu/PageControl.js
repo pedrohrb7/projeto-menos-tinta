@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ListGroup, ListGroupItem, Col, Row } from "reactstrap";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import "./PageControl.css";
 
@@ -82,7 +82,7 @@ const PageControl = () => {
 				</Col>
 				<Col sm={8}>
 					<Switch>
-						<Route path="/PageControl" exact component={Ticketing} />
+						<Route path="/bilhetagem" exact component={Ticketing} />
 						<Route path="/estatisticaEconomia" component={Economy} />
 						<Route path="/graficos" component={Graphics} />
 						<Route path="/entradaInsumos" component={Iventory} />

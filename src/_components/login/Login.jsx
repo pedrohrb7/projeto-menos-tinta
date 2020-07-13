@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import photo from '../../_imgs/photo.svg'
 import './Login.css';
+import axios from 'axios';
 
 class Login extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ logar(event) {
     alert("Por favor digite um usuário e senha");
   }
   else {
-    fetch("https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Login?"+this.state.email+"&"+this.state.senha)
+    /*fetch("https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Login?"+this.state.email+"&"+this.state.senha)
             .then((response)=>response.json()).then((data)=>{ console.log(JSON.stringify(data))
               if(JSON.stringify(data)==='') {
                
@@ -42,7 +43,19 @@ logar(event) {
             })
             .catch((err)=>console.error(err))
      
-  }          
+  }   */
+  const url=`https://cors-anywhere.herokuapp.com/54.159.114.209:211/datasnap/rest/TServerMethods1/Login?${this.state.email}&${this.state.senha}`;
+  axios.get(url)
+  .then(function(response){
+    console.log(response.data); // ex.: { user: 'Your User'}
+    if(response.data === 'Usuário e senha não encontrado ou usuário não é administrador...') {
+      alert("Login incorreto!")    
+    } 
+    else {
+       history.push('/PageControl'); 
+    }  
+  }); 
+}        
 }
 render(){
     return(
