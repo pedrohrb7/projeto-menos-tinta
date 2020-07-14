@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
 import "./User-Management.css";
-// import NewUser from "./NewUser";
+import NewUser from "./ModalNewUser";
+import DeleteUser from "./ModalDeleteUser";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 export default class UserManagement extends Component {
 	state = {
@@ -37,7 +38,7 @@ export default class UserManagement extends Component {
 
 	render() {
 		const editIcon = <FontAwesomeIcon icon={faEdit} />;
-		const deleteIcon = <FontAwesomeIcon icon={faTrashAlt} />;
+		// const deleteIcon = <FontAwesomeIcon icon={faTrashAlt} />;
 
 		var content = <p>Carregando lista de usuários...</p>;
 
@@ -55,33 +56,36 @@ export default class UserManagement extends Component {
 						</tr>
 					</thead>
 					<tbody>
-						{this.state.users.map((user) => (
-							<tr key={user.RowId}>
-								<td className="user-codigo"> {user.usu_codigo} </td>
-								<td>{user.usu_nome}</td>
-								<td>{user.dpt_codigo}</td>
+						{
+							this.state.users.map((user) => (
+								<tr key={user.RowId}>
+									<td className="user-codigo"> {user.usu_codigo} </td>
+									<td>{user.usu_nome}</td>
+									<td>{user.dpt_codigo}</td>
 
-								<td colSpan="2" className="actions">
-									<a href="#" className="action-edit">
-										<span>{editIcon}</span>
-										Editar
-									</a>
-									<a href="#" className="action-delete">
-										<span>{deleteIcon}</span>
-										Excluir
-									</a>
-								</td>
-							</tr>
-						))}
+									<td colSpan="2" className="actions">
+										<a href="#" className="action-edit">
+											<span>{editIcon}</span>
+											Editar
+										</a>
+										<span className="action-delete">
+											<DeleteUser />
+										</span>
+									</td>
+								</tr>
+							))
+							// .filter((user) => user.usu_ativo == "S")
+						}
 					</tbody>
 				</table>
 			);
 		}
+
 		return (
 			<div>
 				<div className="container content">
 					{content}
-					{/* <NewUser /> */}
+					<NewUser />
 				</div>
 			</div>
 		);

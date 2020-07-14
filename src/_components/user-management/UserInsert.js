@@ -12,10 +12,15 @@ class UserInsert extends React.Component {
 	}
 
 	handleChange = (event) => {
-		this.setState({ nome: event.target.nome });
-		this.setState({ senha: event.target.senha });
-		this.setState({ departamento: event.target.departamento });
-		this.setState({ email: event.target.email });
+		// console.log(event.target.id);
+		// this.setState({ event.target.id : event.target.value });
+		// this.setState({ senha: event.target.value });
+		// this.setState({ departamento: event.target.value });
+		// this.setState({ email: event.target.value });
+
+		let change = {};
+		change[event.target.id] = event.target.value;
+		this.setState(change);
 	};
 
 	handleSubmit = (event) => {
@@ -41,13 +46,12 @@ class UserInsert extends React.Component {
 		apiUrl += "&" + this.state.nome;
 		apiUrl += "&" + this.state.senha;
 		apiUrl += "&" + this.state.departamento;
-		apiUrl += "&1&S&S&124&estacao";
+		apiUrl += "&1&S&124&estacao";
 		apiUrl += "&" + this.state.email;
 
 		fetch(apiUrl, requestOptions)
 			.then((result) => {
 				console.log(result);
-				console.log(apiUrl);
 			})
 			.catch((error) => console.log("error", error));
 	};
@@ -57,8 +61,9 @@ class UserInsert extends React.Component {
 			<Form onSubmit={this.handleSubmit}>
 				<Form.Group controlId="formName">
 					<Form.Label className="label-form">Nome</Form.Label>
-					<Form.Control
-						ref={this.state.nome}
+					<input
+						id="nome"
+						value={this.state.nome}
 						onChange={this.handleChange}
 						type="text"
 						placeholder="Nome"
@@ -67,8 +72,9 @@ class UserInsert extends React.Component {
 
 				<Form.Group controlId="formPassword">
 					<Form.Label className="label-form">Senha</Form.Label>
-					<Form.Control
-						ref={this.state.senha}
+					<input
+					id="senha"
+						value={this.state.senha}
 						onChange={this.handleChange}
 						type="password"
 						placeholder="Senha"
@@ -77,8 +83,9 @@ class UserInsert extends React.Component {
 
 				<Form.Group controlId="formEmail">
 					<Form.Label className="label-form">Email</Form.Label>
-					<Form.Control
-						ref={this.state.email}
+					<input
+					id="email"
+						value={this.state.email}
 						onChange={this.handleChange}
 						type="email"
 						placeholder="Email"
@@ -87,8 +94,9 @@ class UserInsert extends React.Component {
 
 				<Form.Group controlId="formDepto">
 					<Form.Label className="label-form">Departamento</Form.Label>
-					<Form.Control
-						ref={this.state.departamento}
+					<input
+					id="departamento"
+						value={this.state.departamento}
 						onChange={this.handleChange}
 						type="text"
 						placeholder="Departamento"
