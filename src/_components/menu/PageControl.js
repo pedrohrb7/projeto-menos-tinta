@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ListGroup, ListGroupItem, Col, Row } from "reactstrap";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import "./PageControl.css";
 
