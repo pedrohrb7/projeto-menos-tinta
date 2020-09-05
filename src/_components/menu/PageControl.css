@@ -5,3 +5,7 @@
 	/* height: 100vh; */
 	margin-right: 10px;
 }
+
+.row {
+    margin-right: 0!important;
+}

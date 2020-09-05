@@ -177,14 +177,12 @@ export default class TicketingPage extends Component {
 				<div className="ticketing-filters">
 					{/* Filtro de Usuários */}
 					<div id="user-filter" className="filters">
-						<Form.Group controlId="exampleForm.ControlSelect1">
-							<Form.Control as="select">
+						<select>
 								<option>Usuários</option>
 								{this.state.userJson.map((item) => (
 									<option value={item.usu_codigo}>{item.usu_nome}</option>
 								))}
-							</Form.Control>
-						</Form.Group>
+						</select>
 					</div>
 
 					{/* Filtro de Impressoras */}

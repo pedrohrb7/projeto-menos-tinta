@@ -6,7 +6,7 @@ import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "./PageControl.css";
 
 import Ticketing from "../../pages/TicketingPage";
-import UserList from "../../pages/UserListPage";
+import UserList from "../../pages/ListUserPage";
 import Iventory from "../../pages/InventoryReceiptPage";
 import Economy from "../../pages/EconomyPage";
 import Graphics from "../../pages/GraphicsPage";

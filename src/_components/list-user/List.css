@@ -1,0 +1,117 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.list-container {
+    height: 50vh;
+    overflow-y: auto;
+    display: inline-block;
+    margin-top: 40px;
+    width: 70%;
+    
+   
+}
+
+table, td, th {
+    border: 1px solid #CBCBCB;
+    height: 15px; 
+   
+    
+}
+
+td, th {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    text-align: center;
+}
+
+th {
+    padding: 15px;
+    background-color:#E9E9E9;
+    width: 0px!important;
+}
+
+td {
+    padding: 10px;
+}
+
+.user_tabela {
+   border-collapse: separate;
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+   overflow: hidden;
+   width: 100%;
+}
+
+.user_tabela tr:nth-child(odd) {
+    background-color: #F9F9F9;
+}
+
+.area-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    margin-right: 25%;
+}
+
+.modal-wrapper {
+    transform: translateY(15vh);
+}
+
+.btn-edit {
+    position: relative;
+    left: 20px;
+    color: #5BABDF;
+    background: transparent;
+    border: none;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.btn-edit img {
+    margin-right: 15px;
+}
+
+.btn-excluir {
+    position: relative;
+    left: -35px;
+    color: #EB058C;
+    background: transparent;
+    border: none;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.btn-excluir img {
+    margin-right: 15px;
+}
+
+
+.errorMessage {
+    color: red;
+    font-size: 0.75em;
+    display: relative;
+}
+
+.form-cadastro .error {
+    border: 1px solid red;
+}
+
+.msg-sucesso {
+    width: 100%;
+    height: 40px;
+    background: #39FF14;
+    color: #008000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 40px;
+}
+
+
+
+
+
