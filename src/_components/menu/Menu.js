@@ -23,7 +23,7 @@ const Menu = (props) => {
 								alt="Menos Tinta Logo"
 							/>
 						</NavbarBrand>
-						<Button type="submit" className="print-button">
+						<Button type="submit" className="print-button" onClick={window.print}>
 							Visualizar | Imprimir Consulta
 						</Button>
 						<NavbarText collapse className="login-session">

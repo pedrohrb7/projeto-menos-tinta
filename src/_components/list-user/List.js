@@ -339,7 +339,7 @@ class List extends Component {
                 {/* <Modal show={this.state.show} closeModalHandler={this.closeModalHandler} list={this.state.userJson}/>   */}
                 <div className="modal-wrapper"
                         style={{
-                        transform: this.state.show ? 'translateY(-3vh)':'translateY(-100vh)',
+                        transform: this.state.show ? 'translateY(-3vh)':'translateY(-168vh)',
                         opacity: this.state.show ? '1' : '0'
                          }}>
                         <div className="modal-cabecalho">
@@ -448,7 +448,7 @@ class List extends Component {
                 <div class="telacontent">
                     {this.state.msg1==true&&(
                         <div className="msg-sucesso">
-                            Cadstrado com sucesso!
+                            Cadastrado com sucesso!
                         </div>
                     )} 
                     {this.state.msg2==true&&(

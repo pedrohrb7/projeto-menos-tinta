@@ -20,7 +20,8 @@ form-control {
 .ticketing-filters {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+	align-items: flex-end;
+	flex-wrap: wrap;
     padding-top: 20px;
     /* margin: auto; */
     /* justify-content: space-between; */
@@ -34,6 +35,8 @@ form-control {
 .date-filters-container {
 	display: block;
 	text-align: justify;
+    position: relative;
+    top: 9px;
 }
 
 .date-filters {
@@ -90,6 +93,7 @@ input {
 	display: flex;
 	justify-content: space-between;
 	padding: 20px 25px 20px 20px;
+	flex-wrap: wrap;
 }
 
 /* DADOS DE PORCENTAGEM DE ECONOMIA */
@@ -171,3 +175,85 @@ thead {
 tbody {
 	background-color: white;
 }
+
+
+/* responsivo */
+
+@media only screen and (max-width: 1362px) {
+	.table th {
+		border-top: none;
+		font-size: 0.8em;
+	}
+
+	.table td, .table th {
+		font-size: 0.7em;
+	}
+
+	.porc-button {
+		white-space: nowrap;
+	}
+}
+
+@media only screen and (max-width: 812px) {
+	.filters {
+		padding: 5px;
+	}
+
+	.porc-button {
+		white-space: nowrap;
+	}
+
+	.porc-button-container {
+		width: 100%;
+		text-align: center;
+	}
+  
+}
+
+
+@media only screen and (max-width: 790px) {
+	.table th {
+		border-top: none;
+		font-size: 0.8em;
+	}
+
+	.table td, .table th {
+		font-size: 0.7em;
+	}
+	.filters {
+		width: 100%;
+		text-align: center;
+	}
+
+	.date-select-container {
+		flex-wrap: wrap;
+	}
+
+	.date-filters {
+		width: 100%;
+	}
+	
+	.under-table-container {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+
+	.porc-button {
+		white-space: nowrap;
+	}
+
+	.col-sm-8 {
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	div #ticketing-table-container {
+		width: 72%;
+		margin: auto;
+	}
+}
+
+
+
+

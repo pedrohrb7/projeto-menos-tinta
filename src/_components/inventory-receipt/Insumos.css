@@ -1,4 +1,25 @@
+/* Correção estilos */
 
+.insumo-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 25px;
+  padding-bottom: 30px;
+}
+
+.filtros {
+  padding: 27px 0 0 15px;
+}
+
+.date-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.data-filter {
+  padding: 0 10px;
+}
 /*------ INÍCIO DA TABELA --------*/
 table{
   width: 95%;
@@ -94,11 +115,18 @@ td {
   padding: 2px;
   margin-top: -2px; 
   font-size: 15px;
-  border-radius: 28px 28px;
-  margin-left: -21px;
+  border-radius: 28px;
+  border: none;
+  margin-left: 20px;
   background-color: #57aae1;
   color: #fff;
 } 
+
+.tabela-container {
+  width: 96%;
+  height: 30vh;
+  overflow: auto;
+}
 /*------ FIM DO BOTÃO --------*/
 
 @media(max-widht: 768px) {

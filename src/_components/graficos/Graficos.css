@@ -6,6 +6,14 @@
     margin-bottom: 30px;
 }
 
+.filtro input {
+    margin-left: 20px;
+}
+
+.filtro button {
+    margin-left: 20px;
+}
+
 .area-grafico h2 {
     background-color: red;
     color: #FFF;
@@ -37,6 +45,23 @@
 
 #grafico4 {
     border-radius: 25px;
+}
+
+
+@media only screen and (max-width: 575px) {
+    .filtro {
+       text-align: center;     
+    }
+
+    .filtro p {
+        text-align: left;
+        margin-left: 30px;
+        margin-top: 30px;
+    }
+
+    .filtro button {
+        margin: 20px 0;
+    }
 }
 
 

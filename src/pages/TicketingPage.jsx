@@ -257,7 +257,7 @@ export default class TicketingPage extends Component {
 								</label>
 							</form>
 						</div>
-						<div style={{ display: "flex" }}>
+						<div style={{ display: "flex", flexWrap:"wrap" }}>
 							<div className="porc-button-container">
 								<button
 									className="porc-button"

@@ -112,6 +112,88 @@ td {
 }
 
 
+@media print {
+   
+    .table {
+        width: 100%!important;
+    }
+
+    .btn-edit, .btn-excluir {
+        display: none;
+    }
+    .list-container {
+        height: 450vh!important;
+        width: 350vw!important;
+    }
+
+    .col-sm-4 {
+        /* width: 250%!important; */
+        /* visibility: hidden!important; */
+        /* margin-left: 0!important; */
+        
+    }
+
+    .col-sm-4 .col-sm-8{
+        display: none;
+    }
+
+    .print-col-8 {
+       width: 500vw!important; 
+       margin-left: -250px!important;
+       display: block;
+        
+    } 
+
+  
+   
+    
+ 
+    
+}
+
+
+/* responsivo */
+
+
+@media only screen and (max-width: 1520px) {
+    .btn-excluir {
+        left: 0;
+    }
+}
+
+@media only screen and (max-width: 1790px) {
+    .btn-edit {
+        left: 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .area-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        /* margin-right: 25%; */
+        margin-bottom: 25px;
+        margin-right: 0;
+    }
+
+    .btn-cadastrar {
+        padding: 10px 20px;
+    }
+
+    .btn-edit {
+        left: 0;
+    }
+    .btn-excluir {
+        left: 0;
+    }
+
+   
+    
+}
+
+
+
 
 
 

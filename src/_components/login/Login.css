@@ -84,7 +84,7 @@ a {
 	font-size: 0.75em;
 }
 
-@media (max-width: 1014px) {
+/* @media (max-width: 1014px) {
 	.box-login {
 		margin-top: 140px;
 	}
@@ -103,4 +103,4 @@ a {
 		background-repeat: no-repeat;
 		background-position: center 10%;
 	}
-}
+} */

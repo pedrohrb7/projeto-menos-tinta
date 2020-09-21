@@ -204,72 +204,74 @@ export default class Insumos extends Component {
 
         return (
             <main className="content container">
-                <div className="row mt-5 ">
+                {/* <div className="row mt-5 ">
                     <div className="col-4 offset-6 periodo">
                         Período:
                     </div>
-                </div>
+                </div> */}
 
                 {/*------ INÍCIO DO FILTRO -----------*/}
-                <div className="row">
+                <div className="insumo-container">
                     {/*------ INÍCIO DO FILTRO SELECT  -----------*/}
-                    <div className="col-6">
-                        <div className="row">
-                            <div className="col-4">
+                    {/* <div className="col-6"> */}
+                        {/* <div className="row"> */}
+                            <div class="filtros">
 
-                                <select className="user col-11" value={this.state.usuarioSelecionado} onChange={this.handleChangeUsuario}>
+                                <select className="" value={this.state.usuarioSelecionado} onChange={this.handleChangeUsuario}>
                                     <option>Usuarios</option>
                                     {usuarios}
                                 </select>
 
                             </div>
-                            <div className="col-4">
+                            <div className="filtros">
 
-                                <select className="user col-11" value={this.state.imp_selecionada} onChange={this.handleChangeImpressora} style={{ marginLeft: 10 }}>
+                                <select className="" value={this.state.imp_selecionada} onChange={this.handleChangeImpressora} >
                                     <option>impressora</option>
                                     {impressoras}
                                 </select>
 
                             </div>
-                            <div className="col-4">
+                            <div className="filtros">
 
-                                <select className="user col-11" value={this.state.dept_selecionado} onChange={this.handleChangeDepartamento} style={{ marginLeft: -20 }}>
+                                <select className="" value={this.state.dept_selecionado} onChange={this.handleChangeDepartamento} >
                                     <option>Departamento</option>
                                     {departamentos}
                                 </select>
 
                             </div>
-                        </div>
-                    </div>
+                        {/* </div> */}
+                    {/* </div> */}
                     {/*------ FIM DO FILTRO SELECT  -----------*/}
 
                     {/*------ INÍCIO DO FILTRO POR DATA -----------*/}
-                    <div className="col-4">
-                        <div className="row">
-                            <div className="col-6 " style={{ marginLeft: -15 }}>
+                    <div className="data-filtro-container">
+                        Período:
+                        <div className="date-container">
+                            <div className="data-filter">
 
                                 <input className="d-start" type="date" value={this.state.dataInicial} onChange={(e) => this.setState({ dataInicial: e.target.value })} />
 
                             </div>
-                            <div className="col-6" style={{ marginLeft: -15 }}>
+                            <div className="date-filter">
                                 <input className="d-end" type="date" value={this.state.dataFinal} onChange={(e) => this.setState({ dataFinal: e.target.value })} />
                             </div>
+                            <button className="filter" onClick={this.consultar.bind(this) } >filtrar</button>
                         </div>
                     </div>
                     {/*------ FIM DO FILTRO POR DATA -----------*/}
 
                     {/*------ INÍCIO BOTÃO DO FILTRAR -----------*/}
-                    <div className="col-2 ">
-                        <button className="filter" onClick={this.consultar.bind(this) } >filtrar</button>
-                    </div>
+                 
+                        
+                 
                     {/*------ FIM BOTÃO DO FILTRAR -----------*/}
                 </div>
                 {/*------ FIM DO FILTRO -----------*/}
 
                 {/*------ INÍCIO DO FILTRO -----------*/}
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 mt-5">
+                {/* <div className="container"> */}
+                    {/* <div className="row"> */}
+                        <div className="tabela-container">
 
                             <table border="0" >
                                 <thead className="t-header">
@@ -293,8 +295,8 @@ export default class Insumos extends Component {
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
+                    {/* </div> */}
+                {/* </div> */}
                 {/*------ FIM DO FILTRO -----------*/}
             </main>
         )

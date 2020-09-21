@@ -79,7 +79,7 @@ const PageControl = () => {
 						</ListGroup>
 					</div>
 				</Col>
-				<Col sm={8}>
+				<Col sm={8} className="print-col-8">
 					<Switch>
 						<Route path="/PageControl" exact component={Ticketing} />
 						<Route path="/bilhetagem" component={Ticketing} />

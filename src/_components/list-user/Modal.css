@@ -119,3 +119,110 @@ body {
     outline: 0;
     cursor: pointer;
 }
+
+/* Responsivo */
+
+@media only screen and (max-width: 500px) {
+    .modal-wrapper {
+        width: 91%;
+        margin: 4rem 5%;
+    }
+
+    .modal-conteudo {
+        padding: 0;
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+
+    .btn-cancel {
+
+        margin: auto;
+        margin-bottom: 33px;
+    }
+
+}
+
+@media only screen and (max-width: 414px) {
+
+    .back-drop {
+        height: 120vh;
+    }
+    .btn-close {
+        left: 21%;
+    }
+    .form-cadastro {
+        margin: 0 3%;
+    }
+
+    .form-cadastro input, .form-cadastro select{
+        width: 288px;
+    }
+
+    .btn-cadastrar {
+        padding: 8px 36px;
+        position: relative;
+        left: 65px;
+    }
+
+    .btn-cancel {
+        padding: 8px 67px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+
+    .back-drop {
+        height: 140vh;
+    }
+    .btn-close {
+        left: 21%;
+    }
+    .form-cadastro {
+        margin: 0 3%;
+    }
+
+    .form-cadastro input, .form-cadastro select{
+        width: 288px;
+    }
+
+    .btn-cadastrar {
+        padding: 8px 36px;
+        position: relative;
+        left: 42px;
+    }
+
+    .btn-cancel {
+        padding: 8px 67px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+
+    .back-drop {
+        height: 182vh;
+    }
+    .btn-close {
+        left: 21%;
+    }
+    .form-cadastro {
+        margin: 0 3%;
+    }
+
+    .form-cadastro input, .form-cadastro select{
+        width: 288px;
+    }
+
+    .btn-cadastrar {
+        padding: 8px 36px;
+        position: relative;
+        left: 31px;
+    }
+
+    .btn-cancel {
+        padding: 8px 67px;
+    }
+
+}    
+
